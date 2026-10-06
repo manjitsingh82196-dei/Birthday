@@ -1,0 +1,901 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #ffd6e7, transparent 35%),
+        radial-gradient(circle at bottom right, #d9c8ff, transparent 35%),
+        linear-gradient(135deg, #ffedf5, #eee5ff);
+
+    color: #3d2940;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+    position: relative;
+    z-index: 2;
+
+    width: min(950px, 92%);
+    margin: auto;
+
+    padding: 60px 0;
+    text-align: center;
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+.hearts span {
+    position: absolute;
+    bottom: -60px;
+
+    font-size: 25px;
+
+    animation: floatHeart 10s linear infinite;
+    opacity: 0;
+}
+
+.hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.hearts span:nth-child(2) {
+    left: 25%;
+    animation-delay: 2s;
+}
+
+.hearts span:nth-child(3) {
+    left: 40%;
+    animation-delay: 4s;
+}
+
+.hearts span:nth-child(4) {
+    left: 55%;
+    animation-delay: 1s;
+}
+
+.hearts span:nth-child(5) {
+    left: 70%;
+    animation-delay: 5s;
+}
+
+.hearts span:nth-child(6) {
+    left: 82%;
+    animation-delay: 3s;
+}
+
+.hearts span:nth-child(7) {
+    left: 92%;
+    animation-delay: 6s;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) scale(.6) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: .8;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.4) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   BADGE
+========================================= */
+
+.badge {
+    display: inline-block;
+
+    padding: 10px 22px;
+    margin-bottom: 20px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, .55);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, .8);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow: 0 10px 30px rgba(120, 60, 100, .12);
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+h1 {
+    font-size: clamp(42px, 7vw, 78px);
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+
+    background: linear-gradient(
+        90deg,
+        #9c3f78,
+        #e85d9e,
+        #7545a6
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+h1 span {
+    display: block;
+}
+
+@keyframes titleGlow {
+
+    0%, 100% {
+        filter: drop-shadow(0 0 5px rgba(232, 93, 158, .15));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 18px rgba(232, 93, 158, .4));
+    }
+}
+
+
+.subtitle {
+    font-size: 17px;
+    color: #70566b;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================================
+   BIRTHDAY CARD
+========================================= */
+
+.birthday-card {
+    position: relative;
+
+    padding: 45px 30px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, .45);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, .8);
+
+    box-shadow:
+        0 30px 80px rgba(104, 57, 100, .18),
+        inset 0 1px 0 rgba(255, 255, 255, .8);
+
+    overflow: hidden;
+}
+
+.card-glow {
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    background: #ff9ccc;
+    filter: blur(100px);
+
+    opacity: .25;
+
+    top: -100px;
+    right: -80px;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   CAKE
+========================================= */
+
+.cake-container {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 30px;
+}
+
+.cake {
+    position: relative;
+
+    width: 190px;
+    height: 130px;
+
+    margin-top: 35px;
+}
+
+.cake-top {
+    position: absolute;
+
+    left: 15px;
+    top: 45px;
+
+    width: 160px;
+    height: 35px;
+
+    background: linear-gradient(
+        #ff8fb8,
+        #ff5f9b
+    );
+
+    border-radius: 50%;
+}
+
+.cake-middle {
+    position: absolute;
+
+    left: 20px;
+    top: 65px;
+
+    width: 150px;
+    height: 45px;
+
+    background: linear-gradient(
+        #ffb3cc,
+        #ff75a6
+    );
+
+    border-radius: 10px 10px 18px 18px;
+}
+
+.cake-bottom {
+    position: absolute;
+
+    left: 28px;
+    top: 100px;
+
+    width: 135px;
+    height: 30px;
+
+    background: #ff6099;
+
+    border-radius: 0 0 20px 20px;
+}
+
+
+/* Candle */
+
+.candle {
+    position: absolute;
+
+    left: 88px;
+    top: 5px;
+
+    width: 14px;
+    height: 45px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ffc6dd
+    );
+
+    border-radius: 5px;
+
+    z-index: 5;
+}
+
+.flame {
+    position: absolute;
+
+    top: -35px;
+    left: -7px;
+
+    font-size: 28px;
+
+    animation: flame 1s ease-in-out infinite alternate;
+}
+
+@keyframes flame {
+
+    from {
+        transform: scale(.85) rotate(-5deg);
+    }
+
+    to {
+        transform: scale(1.15) rotate(5deg);
+    }
+}
+
+
+/* =========================================
+   CARD TEXT
+========================================= */
+
+.birthday-card h2 {
+    font-size: 32px;
+
+    color: #8c376d;
+
+    margin-bottom: 18px;
+}
+
+.birthday-message {
+    max-width: 650px;
+
+    margin: auto;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    color: #624d61;
+}
+
+
+/* =========================================
+   SURPRISE BUTTON
+========================================= */
+
+.surprise-btn {
+    margin-top: 30px;
+
+    padding: 15px 28px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #d94f91,
+        #8d4aa6
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 12px 30px rgba(150, 60, 130, .3);
+
+    transition: .3s;
+}
+
+.surprise-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 18px 40px rgba(150, 60, 130, .4);
+}
+
+
+/* =========================================
+   SURPRISE SECTION
+========================================= */
+
+.surprise-section {
+    display: none;
+
+    margin-top: 35px;
+
+    padding: 40px 25px;
+
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, .6);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, .8);
+
+    animation: reveal .8s ease;
+}
+
+.surprise-section.show {
+    display: block;
+}
+
+@keyframes reveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.surprise-icon {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.surprise-section h2 {
+    color: #8d3d76;
+
+    margin-bottom: 15px;
+}
+
+.surprise-section p {
+    line-height: 1.7;
+
+    color: #675266;
+}
+
+.small-shayari {
+    margin-top: 20px;
+
+    font-style: italic;
+
+    color: #a33d77;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   PREMIUM SHAYARI CARD
+========================================= */
+
+.shayari-card {
+    position: relative;
+
+    margin-top: 45px;
+
+    padding: 55px 35px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.65),
+            rgba(255,230,243,.55)
+        );
+
+    backdrop-filter: blur(22px);
+
+    border: 1px solid rgba(255,255,255,.85);
+
+    box-shadow:
+        0 30px 70px rgba(110, 50, 100, .18),
+        inset 0 0 35px rgba(255,255,255,.4);
+
+    overflow: hidden;
+
+    transition: .4s;
+}
+
+.shayari-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 40px 90px rgba(110, 50, 100, .25);
+}
+
+
+/* Golden Inner Border */
+
+.shayari-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border-radius: 27px;
+
+    border: 1px solid rgba(190, 139, 64, .35);
+
+    pointer-events: none;
+}
+
+
+/* Shayari Label */
+
+.shayari-label {
+    position: relative;
+
+    display: inline-block;
+
+    padding: 8px 20px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.6);
+
+    color: #a36a32;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Quote */
+
+.quote-mark {
+    position: absolute;
+
+    left: 45px;
+    top: 80px;
+
+    font-family: Georgia, serif;
+
+    font-size: 90px;
+
+    line-height: 1;
+
+    color: rgba(181, 115, 50, .25);
+}
+
+.quote-bottom {
+    left: auto;
+    right: 45px;
+
+    top: auto;
+    bottom: 55px;
+}
+
+
+/* Shayari Text */
+
+.shayari-text {
+    position: relative;
+
+    max-width: 700px;
+
+    margin: 20px auto 25px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(23px, 3.2vw, 34px);
+
+    line-height: 1.8;
+
+    font-weight: 500;
+
+    color: #713d62;
+
+    text-shadow: 0 2px 10px rgba(130,60,100,.08);
+}
+
+
+/* Divider */
+
+.shayari-line {
+    width: 90px;
+    height: 2px;
+
+    margin: 20px auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #b77a3c,
+        transparent
+    );
+}
+
+
+/* Name */
+
+.shayari-name {
+    color: #9b5f32;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* Decorations */
+
+.shayari-decoration {
+    position: absolute;
+
+    font-size: 30px;
+
+    color: rgba(183, 122, 60, .55);
+
+    animation: decorationFloat 3s ease-in-out infinite;
+}
+
+.top-left {
+    left: 25px;
+    top: 25px;
+}
+
+.top-right {
+    right: 25px;
+    top: 25px;
+}
+
+.bottom-left {
+    left: 30px;
+    bottom: 25px;
+}
+
+.bottom-right {
+    right: 30px;
+    bottom: 25px;
+}
+
+@keyframes decorationFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(8deg);
+    }
+}
+
+
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+.final-message {
+    margin-top: 50px;
+
+    padding: 35px 20px;
+}
+
+.stars {
+    font-size: 25px;
+
+    margin-bottom: 15px;
+}
+
+.final-message h2 {
+    color: #8c376d;
+
+    margin-bottom: 12px;
+}
+
+.final-message p {
+    color: #6c5768;
+
+    line-height: 1.7;
+}
+
+.heart {
+    font-size: 45px;
+
+    margin-top: 15px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+.confetti {
+    position: fixed;
+
+    width: 10px;
+    height: 10px;
+
+    top: -20px;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   CLICK HEART
+========================================= */
+
+.click-heart {
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    font-size: 22px;
+
+    animation: clickHeart 1s ease-out forwards;
+}
+
+@keyframes clickHeart {
+
+    0% {
+        transform: translate(-50%, -50%) scale(.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(-50%, -120px)
+            scale(1.5);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+
+        padding: 40px 0;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .birthday-card {
+        padding: 35px 20px;
+    }
+
+    .birthday-card h2 {
+        font-size: 25px;
+    }
+
+    .birthday-message {
+        font-size: 15px;
+    }
+
+    .shayari-card {
+        padding: 45px 20px;
+    }
+
+    .shayari-text {
+        font-size: 22px;
+
+        line-height: 1.7;
+    }
+
+    .quote-mark {
+        left: 20px;
+        top: 85px;
+
+        font-size: 60px;
+    }
+
+    .quote-bottom {
+        right: 20px;
+        left: auto;
+
+        bottom: 45px;
+    }
+
+    .shayari-decoration {
+        font-size: 22px;
+    }
+
+    .top-left {
+        left: 18px;
+    }
+
+    .top-right {
+        right: 18px;
+    }
+
+    .bottom-left {
+        left: 18px;
+    }
+
+    .bottom-right {
+        right: 18px;
+    }
+}
+
+
+/* =========================================
+   PRINT
+========================================= */
+
+@media print {
+
+    .hearts,
+    .surprise-btn {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+
+    .birthday-card,
+    .shayari-card,
+    .surprise-section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
